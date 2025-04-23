@@ -1,4 +1,5 @@
 function [net_travel_time] = travelTime(x,V)
+    %fix units to be m/s rather than km/hr
     index = 0;
     dists = [];
     for i = 1:2:length(x)-1

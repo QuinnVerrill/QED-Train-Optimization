@@ -19,16 +19,15 @@ function [network_cost] = networkCost(x)
     station_cost = exp(3.5 * costs); % <-- paramter to tune
 
     %Rail Cost
-    index = 0;
     dists = [];
-    for i = 1:2:length(x)-1
-        for j = 1:2:length(x)-1
+    for k = 1:2:length(x)-1
+        for l = 1:2:length(x)-1
           
-            if x(i) == x(j)   
+            if x(k) == x(l)   
                continue
             else 
                 index = index + 1;
-                dists(index) = norm([x(i),x(i+1)]-[x(j),x(j+1)]);
+                dists(index) = norm([x(k),x(k+1)]-[x(l),x(l+1)]);
             end
         end 
     end

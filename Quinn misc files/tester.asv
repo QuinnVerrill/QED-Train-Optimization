@@ -21,7 +21,7 @@ for i = 1:2:length(x)
     end
 end
 
-station_cost = exp(21 * costs); % <-- paramter to tune %make along the order of 500mil
+station_cost = exp(21 * costs); % <-- paramter to tune
 
 %Rail Cost
 index = 0;
