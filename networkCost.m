@@ -16,7 +16,7 @@ function [network_cost] = networkCost(x)
         end
     end
 
-    network_cost = exp(3.5 * costs); % <-- paramter to tune
+    station_cost = exp(3.5 * costs); % <-- paramter to tune
 
     %Rail Cost
     index = 0;
@@ -33,4 +33,7 @@ function [network_cost] = networkCost(x)
         end 
     end
     total_distance = sum(dists);
+    track_cost = total_distance*160000; %$160,000 per kilometer of track
+
+    network_cost = station_cost + track_cost;
 end
