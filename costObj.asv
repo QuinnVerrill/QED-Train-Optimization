@@ -3,12 +3,12 @@ function [totalCost] = costObj(x)
 
 %Network Optimization:
 % St_x, St_y: station coordinates
-% [St1_x, St1_y] = [x(1), x(2)];
-% [St2_x, St2_y] = [x(3), x(4)];
-% [St3_x, St3_y] = [x(5), x(6)];
-% [St4_x, St4_y] = [x(7), x(8)];
-% [St5_x, St5_y] = [x(9), x(10)];
-% [St6_x, St6_y] = [x(11), x(12)];
+[St1_x, St1_y] = [x(1), x(2)];
+[St2_x, St2_y] = [x(3), x(4)];
+[St3_x, St3_y] = [x(5), x(6)];
+[St4_x, St4_y] = [x(7), x(8)];
+[St5_x, St5_y] = [x(9), x(10)];
+[St6_x, St6_y] = [x(11), x(12)];
 
 %Train Aerodynamics Optimization:
 angle_alpha = x(13);
@@ -27,16 +27,16 @@ S = x(19);
 t = x(20);
 V = x(21);
 
-%Function Calls:
 %Call Network cost function:
-network_cost = networkCost(x(1:12));
+network_cost = networkCost(x(1:12))
 
 %Call train cost function:
-train_cost = TrainCost(num_cars);
+train_cost = TrainCost(num_cars)
 
-%Call safety system cost function:
-safety_system_cost = safety_system_cost_function(x(17:21));
+%Call ea cost function:
+train_cost = TrainCost(num_cars)
 
-%Total combined cost
-totalCost = network_cost + train_cost + safety_system_cost;
+
+
+
 end
