@@ -1,6 +1,10 @@
 function [totalCost] = costObj(x)
 %variables:
 
+%network: (x(1:12))
+%train: (x(13:16))
+%safety: (x(17:21))
+
 %Network Optimization:
 % St_x, St_y: station coordinates
 % [St1_x, St1_y] = [x(1), x(2)];
