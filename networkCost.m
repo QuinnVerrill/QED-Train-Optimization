@@ -1,6 +1,7 @@
 function [network_cost] = networkCost(x)
     weights = read_pop();
     costs = 0; % initial total cost
+    index = 0;
     
     %Station Cost
     % round x(i) and x(i+1) to integers, just in case
