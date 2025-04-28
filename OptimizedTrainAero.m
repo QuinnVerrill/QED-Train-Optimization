@@ -1,6 +1,7 @@
 clear all
 global cd_mdl
 
+
 %Variables: [angle_alpha, angle_beta, angle_gamma, num_cars]
 %Solutiuon: [Coefficient of Drag]
 var = [15,30,10,3;15,15,10,3;50,30,20,3;15,50,20,3;15,15,10,7;30,50,10,15;15,15,20,7;15,30,10,15;50,50,10,3;30,15,20,3;50,30,20,7;15,15,20,3]; 

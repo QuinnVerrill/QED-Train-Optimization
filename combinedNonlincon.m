@@ -18,7 +18,7 @@ function [c, ceq] = combinedNonlincon(x)
     %minimum conv score constraint
     
     %%% Train Optimization constraints   
-    cd = predict(cd_mdl,x);
+    cd = predict(cd_mdl,x(13:16));
     v = TrainVelocity(cd);
     minVel = 70; %paramter to tune!!!!!! (in m/s)
     minCars = 6; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
