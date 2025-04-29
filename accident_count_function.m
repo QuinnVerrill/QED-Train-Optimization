@@ -4,11 +4,12 @@ function [total_yearly_accident_count] = accident_count_function(x)
 % Earthquake detection system accuracy (A) [percentage]
 % Earthquake detection system speed (S) : ratio of speed to magnitude? [meters/second/magnitude]
 % Earthquake magnitude resistance threshold of derailment guards on tracks (t)
-B = x(1);
-A = x(2);
-S = x(3);
-t = x(4);
-V = x(5); %just added this NEW
+num_cars=x(1)
+B = x(2);
+A = x(3);
+S = x(4);
+t = x(5);
+V = x(6); %just added this NEW
 
 %parameters:
 %load earthquake data for 6 months in japan (9/27/2024 ~ 3/26/2025)
@@ -16,7 +17,7 @@ earthquake_data_sorted = load("earthquake_data_sorted.mat");
 data = earthquake_data_sorted.earthquakes;
 
 %general parameters
-m = 500000; %mass of train, placeholder [kg]
+m = num_cars*44687.5; %mass of train, placeholder [kg]
 % Vmax = 44; %max allowed velocity of train, placeholder [meters/second]
 percent_tunnels = 0.02; %percentage of tracks that are tunnels, placeholder
 percent_bridges = 0.02; %percentage of tracks that are bridges, placeholder

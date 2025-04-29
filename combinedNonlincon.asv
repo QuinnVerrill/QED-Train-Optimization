@@ -15,7 +15,7 @@ function [c, ceq] = combinedNonlincon(x)
         end
     end
     
-    %minimum conv score constrain6
+    %minimum conv score constraint
     
     %%% Train Optimization constraints   
     cd = predict(cd_mdl,x(13:16));
@@ -23,15 +23,15 @@ function [c, ceq] = combinedNonlincon(x)
     minVel = 70; %paramter to tune!!!!!! (in m/s)
     minCars = 6; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
     %setting maximum velocity & minimum velocity
-    c(index+1) = v - x(21); %x(21) is max velocity set by saftey subsystem 
+    c(index+1) = abs(v - x(21))-0.01; %x(21) is max velocity set by saftey subsystem 
     c(index+2) = minVel - v;
     c(index+3) = minCars - x(16);
-    
+    c(index+4) = 
    
     %%% Train Saftey Constraints
     % maximum number of accidents per year
     maxAccidents = 3; % paramater to tune!!!!!!!
-    c(index+4) = maxAccidents - accident_count_function(x(16:21));
+    c(index+4) = maxAccidents - accident_count_function(x(17:21));
    
     ceq = [];
 end
