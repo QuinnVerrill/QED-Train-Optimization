@@ -1,5 +1,7 @@
 function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     global cd_mdl
+    [r1,r2,r3] = getGlobalConstraintVars;
+    distCon = r2;
     
     %%% Network constraints
     
@@ -32,6 +34,7 @@ function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     % maximum number of accidents per year
     maxAccidents = 3; % paramater to tune!!!!!!!
     c(index+4) = accident_count_function(x(16:21)) - maxAccidents;
+
    
     ceq = [];
 end
