@@ -3,14 +3,14 @@ function [network_cost] = networkCost(x)
     costs = 0; % initial total cost
     % Station Cost
     % finding weights value for each station, summing them to a total value
-    % to scale to get total stations cost
+    % to scale to get total station
     index1 = 0;
     for i = 1:2:length(x)
         index1 = index1 + 1;
         costs = costs + weights(x(i),x(+1));
     end
     
-    station_cost = 55000000 + exp(21 * costs); % <-- paramter(s) to tune
+    station_cost = 55000000 + exp(21 * costs); % <-- paramter to tune %make along the order of 500mil
     
     %Rail Cost
     index2 = 0;
