@@ -31,7 +31,7 @@ function [c, ceq] = combinedNonlincon(x)
     %%% Train Saftey Constraints
     % maximum number of accidents per year
     maxAccidents = 3; % paramater to tune!!!!!!!
-    c(index+4) = maxAccidents - accident_count_function(x(16:21));
+    c(index+4) = accident_count_function(x(16:21)) - maxAccidents;
    
     ceq = [];
 end
