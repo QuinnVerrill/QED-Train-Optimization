@@ -4,7 +4,7 @@ function [total_yearly_accident_count] = accident_count_function(x)
 % Earthquake detection system accuracy (A) [percentage]
 % Earthquake detection system speed (S) : ratio of speed to magnitude? [meters/second/magnitude]
 % Earthquake magnitude resistance threshold of derailment guards on tracks (t)
-num_cars=x(1)
+num_cars=x(1);
 B = x(2);
 A = x(3);
 S = x(4);
