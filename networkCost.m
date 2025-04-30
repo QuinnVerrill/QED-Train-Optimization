@@ -10,7 +10,7 @@ function [network_cost] = networkCost(x)
         costs = costs + weights(x(i),x(+1));
     end
     
-    station_cost = 55000000 + exp(21 * costs); % <-- paramter(s) to tune
+    station_cost = 5500000 + exp(12 * costs); % <-- paramter(s) to tune
     
     %Rail Cost
     index2 = 0;
