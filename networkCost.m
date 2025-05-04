@@ -4,11 +4,9 @@ function [network_cost] = networkCost(x)
     % Station Cost
     % finding weights value for each station, summing them to a total value
     % to scale to get total stations cost
-    index1 = 0;
-    for i = 1:2:length(x)
-        index1 = index1 + 1;
+    for i = 1:2:length(x(1:12))
         row = round(x(i));
-        col = round(x(i+1));
+        col = round(x(i)) + 1;
         costs = costs + weights(row,col);
     end
     
