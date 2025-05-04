@@ -7,7 +7,9 @@ function [network_cost] = networkCost(x)
     index1 = 0;
     for i = 1:2:length(x)
         index1 = index1 + 1;
-        costs = costs + weights(x(i),x(i+1));
+        row = round(x(i));
+        col = round(x(i+1));
+        costs = costs + weights(row,col);
     end
     
     station_cost = 5500000 + exp(12 * costs); % <-- paramter(s) to tune
