@@ -11,7 +11,8 @@ function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     % distance constraint setup
     % distCon = 35; % distance threshold <-- parameter to tune
     index = 2; % starting from the second constraint.
-    num_stations = length(x) / 2;
+    % num_stations = length(x) / 2;
+    num_stations = 6;
     % for loop to generate pairwise distance constraints between each station
     for i = 1:num_stations
         for j = i+1:num_stations  % To avoid duplicate constraints (e.g., (1,2) and (2,1))
