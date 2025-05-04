@@ -1,12 +1,15 @@
 function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     global cd_mdl
     [r1,r2,r3] = getGlobalConstraintVars;
+    minCars = r1;
     distCon = r2;
+    maxAccidents = r3;
+    %add other values
     
     %%% Network constraints
     
     % distance constraint setup
-    distCon = 35; % distance threshold <-- parameter to tune
+    % distCon = 35; % distance threshold <-- parameter to tune
     index = 2; % starting from the second constraint.
     num_stations = length(x) / 2;
     % for loop to generate pairwise distance constraints between each station
@@ -23,16 +26,16 @@ function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     cd = predict(cd_mdl,x(13:16));
     v = TrainVelocity(cd);
     minVel = 70; %paramter to tune!!!!!! (in m/s)
-    minCars = 6; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
+    % minCars = 6; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
     %setting maximum velocity & minimum velocity
-    c(index+1) = v - x(21); %x(21) is max velocity set by saftey subsystem 
+    c(index+1) = v - x(21); %x(21) is max velocity set by safety subsystem 
     c(index+2) = minVel - v;
     c(index+3) = minCars - x(16);
     
    
     %%% Train Saftey Constraints
     % maximum number of accidents per year
-    maxAccidents = 3; % paramater to tune!!!!!!!
+    %maxAccidents = 3; % paramater to tune!!!!!!!
     c(index+4) = accident_count_function(x(16:21)) - maxAccidents;
 
    
