@@ -4,6 +4,8 @@ function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     minCars = r1;
     distCon = r2;
     maxAccidents = r3;
+
+
     %add other values
     
     %%% Network constraints
@@ -38,6 +40,9 @@ function [c, ceq] = combinedNonlinconSensitivityTesting(x,input)
     % maximum number of accidents per year
     %maxAccidents = 3; % paramater to tune!!!!!!!
     c(index+4) = accident_count_function(x(16:21)) - maxAccidents;
+
+    minConv = 0.2;
+    c(index+5) =  minConv - networkScore(x(1:12));
 
    
     ceq = [];
