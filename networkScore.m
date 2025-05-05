@@ -53,6 +53,6 @@ function [convScore] = networkScore(x)
     % mean of all stations
     A = 11/12; % <-- paramters to tune
     B = 1/12; % <-- paramters to tune
-    convScore = -1 * (A * mean(scores)) + (B * net_travel_time); 
+    convScore = 1 * (A * mean(scores)) + (B * net_travel_time); 
     
 end 

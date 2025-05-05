@@ -33,6 +33,9 @@ function [c, ceq] = combinedNonlincon(x)
     maxAccidents = 3; % paramater to tune!!!!!!!
     c(index+4) = accident_count_function(x(16:21)) - maxAccidents;
 
+    minConv = 0.2;
+    c(index+5) =  minConv - networkScore(x(1:12));
+
     cd_input = x(13:16);
     lb_cd = [15 15 10 3];
     ub_cd = [50 50 20 15];
