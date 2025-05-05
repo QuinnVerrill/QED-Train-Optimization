@@ -21,7 +21,7 @@ function [c, ceq] = combinedNonlincon(x)
     cd = predict(cd_mdl,x(13:16));
     v = TrainVelocity(cd);
     minVel = 60; %paramter to tune!!!!!! (in m/s)
-    minCars = 4; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
+    minCars = 3; %paramater to tune!!!! assuming 80 passengers per car - 480 capacity 
     %setting maximum velocity & minimum velocity
     c(index+1) = v - x(21); %x(21) is max velocity set by saftey subsystem 
     c(index+2) = minVel - v;
@@ -35,14 +35,7 @@ function [c, ceq] = combinedNonlincon(x)
 
     minConv = 0.2;
     c(index+5) =  minConv - networkScore(x(1:12));
-
-    cd_input = x(13:16);
-    lb_cd = [15 15 10 3];
-    ub_cd = [50 50 20 15];
-    c(end+1:end+4) = cd_input - ub_cd;
-    c(end+5:end+8) = lb_cd - cd_input;
-
-   
+    
     ceq = [];
 end
 
